@@ -17,12 +17,7 @@
       </a>
     </span>
   </div>
-  <%= react_component('CommentContainer',
-    data: [
-            {nickname: "yogoken", text: "oh-my-zsh"},
-            {nickname: "sakai", text: "zero is coming"}
-          ]
-  ) %>
+  <%= react_component('CommentContainer', url: '/api/v1/comments.json') %>
   <!-- <div class="container"> -->
     <%# if current_user %>
       <%#= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
