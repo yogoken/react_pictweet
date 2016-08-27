@@ -6,7 +6,7 @@ var CommentContainer = React.createClass({
     return (
       <div className="container">
         <h1>Comments</h1>
-        <CommentList comments={this.state.comments}/>
+        <CommentList data={this.props.data}/>
         <CommentForm />
       </div>
     );

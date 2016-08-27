@@ -1,9 +1,15 @@
 var CommentList= React.createClass({
   render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        <Comment nickname={comment.nickname} text={comment.text}>
+        </Comment>
+      );
+    });
     return (
-      <p>
-        Hello, this is CommentList
-      </p>
+      <div className="commentList">
+        {commentNodes}
+      </div>
     );
   }
 });

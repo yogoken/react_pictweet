@@ -4,7 +4,7 @@ var Comment = React.createClass({
       <p>
         <strong>
           {this.props.nickname}
-        </strong>
+        </strong><br/>
         {this.props.text}
       </p>
     );
