@@ -1,12 +1,29 @@
 var CommentContainer = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(result) {
+        this.setState({data: result.data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
   getInitialState: function() {
-    return {comments: []};
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval)
   },
   render: function() {
     return (
       <div className="container">
         <h1>Comments</h1>
-        <CommentList data={this.props.data}/>
+        <CommentList data={this.state.data}/>
         <CommentForm />
       </div>
     );
