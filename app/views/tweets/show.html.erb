@@ -17,7 +17,7 @@
       </a>
     </span>
   </div>
-  <%= react_component('CommentContainer', url: '/api/v1/comments.json') %>
+  <%= react_component('CommentContainer', url: '/api/v1/comments.json', pollInterval: 2000000) %>
   <!-- <div class="container"> -->
     <%# if current_user %>
       <%#= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
